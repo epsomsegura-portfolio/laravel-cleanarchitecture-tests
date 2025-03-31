@@ -21,7 +21,7 @@ class LoginApiTest extends TestCase
     public function test_api_login_user_does_not_exists()
     {
         $this->user = User::factory()->create(['password' => bcrypt('password')]);
-        $response = $this->postJson('/api/login', [
+        $response = $this->postJson('/api/auth/login', [
             'email' => 'ouo@ui.o',
             'password' => 'password',
         ]);
@@ -31,7 +31,7 @@ class LoginApiTest extends TestCase
     public function test_api_login_password_is_wrong()
     {
         $this->user = User::factory()->create(['password' => bcrypt('password')]);
-        $response = $this->postJson('/api/login', [
+        $response = $this->postJson('/api/auth/login', [
             'email' => $this->user->email,
             'password' => 'ghndoiaghondif',
         ]);
@@ -41,7 +41,7 @@ class LoginApiTest extends TestCase
     public function test_api_login_ok()
     {
         $this->user = User::factory()->create(['password' => bcrypt('password')]);
-        $response = $this->postJson('/api/login', [
+        $response = $this->postJson('/api/lauth/ogin', [
             'email' => $this->user->email,
             'password' => 'password',
         ]);
