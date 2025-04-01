@@ -54,7 +54,7 @@ jobs:
         run: ./vendor/bin/phpunit
 
       - name: Create Database
-        run: php artisan migrate:fresh --seed --env=testing
+        run: php artisan migrate:fresh --seed --env=testing -v
         env:
           DB_CONNECTION: sqlite
           DB_DATABASE: ':memory:'
