@@ -27,7 +27,7 @@ class LoginController extends Controller
             }
         }
         catch(Exception $exception){
-            return response()->json(['message'=>$exception->getMessage(),'code'=>$exception->getCode()],$exception->getCode());
+            return response()->json(['message'=>$exception->getMessage(),'code'=>(int)($exception->getCode() ?? 500)],(int)($exception->getCode() ?? 500));
         }
     }
 }

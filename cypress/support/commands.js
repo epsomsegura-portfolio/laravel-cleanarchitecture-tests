@@ -24,6 +24,10 @@
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 Cypress.Commands.add('resetDatabase', () => {
-    cy.exec('php artisan migrate:fresh --seed');
+  cy.exec('php artisan migrate:fresh --seed --env=testing -v').then((result) => {
+    if (result.code !== 0) {
+      cy.log('Migration Error:', result.stderr);
+      throw new Error('Migration failed');
+    }
   });
-  
+});
