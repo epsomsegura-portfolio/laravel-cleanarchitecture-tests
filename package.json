@@ -4,7 +4,7 @@
     "scripts": {
         "build": "vite build",
         "dev": "vite",
-        "cypress-test": "php artisan serve --env=testing & npx cypress open"
+        "cypress-test": "php artisan serve --env=testing & npx cypress run"
     },
     "dependencies": {
         "@tailwindcss/vite": "^4.0.7",

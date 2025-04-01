@@ -41,7 +41,7 @@ class LoginApiTest extends TestCase
     public function test_api_login_ok()
     {
         $this->user = User::factory()->create(['password' => bcrypt('password')]);
-        $response = $this->postJson('/api/lauth/ogin', [
+        $response = $this->postJson('/api/auth/login', [
             'email' => $this->user->email,
             'password' => 'password',
         ]);
